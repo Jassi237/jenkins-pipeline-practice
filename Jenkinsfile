@@ -38,7 +38,7 @@ pipeline{
         }
 
         always{
-            echo('Pipeline execution finished.')
+            echo('Pipeline execution is finished.')
         }
     }   
 }
