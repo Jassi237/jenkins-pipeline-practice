@@ -1,6 +1,11 @@
 pipeline{
     agent any
 
+    environment{
+        APP_NAME = 'my-app'
+        VERSION = '1.0'
+    }
+
     stages{
         stage('Checkout'){
             steps{
@@ -10,13 +15,8 @@ pipeline{
 
         stage('build'){
             steps{
-                echo "echo 'Building version 5 of the application...'"
-                echo "Job Name: ${env.JOB_NAME}"
-                echo "Build Number: ${env.BUILD_NUMBER}"
-                echo "Workspace: ${env.WORKSPACE}"
-                sh 'echo Workspace is: $WORKSPACE'
-                sh 'ls -la $WORKSPACE'
-                echo "Build URL: ${env.BUILD_URL}"
+                echo "Building: ${env.APP_NAME}"
+                sh 'Testing $APP_NAME version $VERSION'
             }
         }
 
