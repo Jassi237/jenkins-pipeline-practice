@@ -14,6 +14,8 @@ pipeline{
                 echo "Job Name: ${env.JOB_NAME}"
                 echo "Build Number: ${env.BUILD_NUMBER}"
                 echo "Workspace: ${env.WORKSPACE}"
+                sh 'echo Workspace is: $WORKSPACE'
+                sh 'ls -la $WORKSPACE'
                 echo "Build URL: ${env.BUILD_URL}"
             }
         }
