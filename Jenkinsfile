@@ -16,7 +16,7 @@ pipeline{
         stage('build'){
             steps{
                 echo "Building: ${env.APP_NAME}"
-                sh 'Testing $APP_NAME version $VERSION'
+                sh 'echo "Testing $APP_NAME version $VERSION"'
             }
         }
 
