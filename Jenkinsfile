@@ -11,6 +11,10 @@ pipeline{
         stage('build'){
             steps{
                 echo "echo 'Building version 5 of the application...'"
+                echo "Job Name: ${env.JOB_NAME}"
+                echo "Build Number: ${env.BUILD_NUMBER}"
+                echo "Workspace: ${env.WORKSPACE}"
+                echo "Build URL: ${env.BUILD_URL}"
             }
         }
 
