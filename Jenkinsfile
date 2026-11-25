@@ -10,7 +10,7 @@ pipeline{
 
         stage('build'){
             steps{
-                echo "echo 'Building version 4 of the application...'"
+                echo "echo 'Building version 5 of the application...'"
             }
         }
 
