@@ -15,6 +15,12 @@ pipeline{
     // }
 
     parameters{
+        string(
+            name: "APP_VERSION",
+            defaultValue: '1.0',
+            description: "Enter the applicaton version"
+        )
+
         choice(
             name: 'Deploy_Env',
             choices:['dev','staging','production'],
@@ -45,8 +51,13 @@ pipeline{
         stage('deploy'){
 
             when{
-                expression{
-                    params.Deploy_Env == 'production'
+                anyOf{
+                    expression{
+                        params.Deploy_Env == 'staging'
+                    }
+                    expression{
+                        params.Deploy_Env == 'production'
+                    }
                 }
             }
 
