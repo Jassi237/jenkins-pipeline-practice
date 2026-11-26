@@ -50,13 +50,24 @@ pipeline{
 
         stage('deploy'){
 
+            // when{
+            //     anyOf{
+            //         expression{
+            //             params.Deploy_Env == 'staging'
+            //         }
+            //         expression{
+            //             params.Deploy_Env == 'production'
+            //         }
+            //     }
+            // }
+
             when{
-                anyOf{
-                    expression{
-                        params.Deploy_Env == 'staging'
-                    }
+                allOf{
                     expression{
                         params.Deploy_Env == 'production'
+                    }
+                    expression{
+                        params.APP_VERSION == '2.0'
                     }
                 }
             }
