@@ -8,8 +8,8 @@ pipeline{
 
     parameters{
         string(
-            name: 'APP_VERSION'
-            defaultValue: '1.0'
+            name: 'APP_VERSION',
+            defaultValue: '1.0',
             description: 'Enter the application version'
         )
     }
