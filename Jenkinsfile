@@ -16,8 +16,8 @@ pipeline{
 
     parameters{
         choice(
-            name: 'Deploy_Env'
-            choices:['dev','staging','production']
+            name: 'Deploy_Env',
+            choices:['dev','staging','production'],
             descritpion: 'Select the deployment environment'
         )
     }
