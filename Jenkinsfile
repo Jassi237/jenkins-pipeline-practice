@@ -6,11 +6,19 @@ pipeline{
         VERSION = '1.0'
     }
 
+    // parameters{
+    //     string(
+    //         name: "APP_VERSION",
+    //         defaultValue: '1.0',
+    //         description: "Enter the applicaton version"
+    //     )
+    // }
+
     parameters{
-        string(
-            name: 'APP_VERSION',
-            defaultValue: '1.0',
-            description: 'Enter the application version'
+        choice(
+            name: 'Deploy_Env'
+            choices:['dev','staging','production']
+            descritpion: 'Select the deployment environment'
         )
     }
 
@@ -35,6 +43,13 @@ pipeline{
         }
 
         stage('deploy'){
+
+            when{
+                expression{
+                    params.Deploy_Env == 'production'
+                }
+            }
+
             steps{
                 echo "Deploying ${env.APP_NAME} version ${params.APP_VERSION}"
             }
