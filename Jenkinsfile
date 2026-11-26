@@ -61,13 +61,21 @@ pipeline{
             //     }
             // }
 
+            // when{
+            //     allOf{
+            //         expression{
+            //             params.Deploy_Env == 'production'
+            //         }
+            //         expression{
+            //             params.APP_VERSION == '2.0'
+            //         }
+            //     }
+            // }
+
             when{
-                allOf{
+                not{
                     expression{
                         params.Deploy_Env == 'production'
-                    }
-                    expression{
-                        params.APP_VERSION == '2.0'
                     }
                 }
             }
